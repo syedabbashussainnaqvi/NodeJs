@@ -1,0 +1,49 @@
+/* //import node packages
+var fs = require("fs")  //require is used to load node module which we cant use directly
+fs.appendFileSync("note.txt",". It is a wonderful app to make notes of important things ")*/
+
+/* //import our own packages
+const note = require("./notes")
+const msg = note()
+console.log(msg)
+*/
+
+/* //Using npm packages first npm init then install package that is needed
+const chalk = require("chalk")
+const color = chalk.red
+console.log(color("Success"))
+*/
+
+/* //Parsing argv using command line argv
+const chalk = require("chalk")
+const add = require("./add")
+const remove = require("./remove")
+const update = require("./update")
+const show = require("./show")
+const commandLineArgs = require('command-line-args')
+
+const optionDefinitions = [
+    { name: 'action', alias: 'a', type: String },
+    { name: 'noteName', alias: 'n', type: String },
+    { name: 'msg', alias: 'm', type: String }
+  ]
+
+const commands = commandLineArgs(optionDefinitions)
+
+const action = commands['action']
+const noteName = commands['noteName']
+const msg = commands['msg']
+
+if(action=="add"){
+    const note= add(noteName,msg)
+}
+else if(action=="remove"){
+    const note= remove(noteName)
+}
+else if(action=="update"){
+    const note= update(noteName,msg)
+}
+else if(action=="show"){
+    const note= show(noteName,msg)
+}
+*/
